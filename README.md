@@ -1,6 +1,8 @@
 # Pelco D Protocol Library in Pascal
 
-**NOTE:** This library was written in Object Pascal using Lazarus IDE (a free development environment for Delphi and Object Pascal) available here: https://www.lazarus-ide.org/.  It is a work in progress.
+**NOTE:** This library was written in Object Pascal using Lazarus IDE (a free development environment for Delphi and Object Pascal) available here: https://www.lazarus-ide.org/.  The library a work in progress.
+
+**LICENSE:** This software is made available under the MIT No Attribution license, copyright 2024 Clear Data Solutions, Inc.  For details regarding this license see the file "LICENSE" in this project.
 
 ## Pelco-D
 
