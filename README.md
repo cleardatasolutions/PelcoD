@@ -12,9 +12,11 @@ https://www.commfront.com/pages/pelco-d-protocol-tutorial
 
 https://asset.fujifilm.com/www/us/files/2020-03/5cc3680592a1a16d8e6e067e34910c32/Pelco-D_Protocol_Specification_for_SX800_801_V.2.51_ENG.pdf
 
+## Use
+
 The TPelcoD class can be used to generate the 7 byte command "packets".  Simply create an instance of the class and call "GetCommand" with the appropriate parameters.  The 7th byte is a "checksum" which will be calculated automatically.
 
-## GetCommand 
+### GetCommand 
 
 **packet:** A TPacket variable which will be populated with the necessary values to send to the Pelco-D device.
 
