@@ -12,6 +12,8 @@ https://www.commfront.com/pages/pelco-d-protocol-tutorial
 
 https://asset.fujifilm.com/www/us/files/2020-03/5cc3680592a1a16d8e6e067e34910c32/Pelco-D_Protocol_Specification_for_SX800_801_V.2.51_ENG.pdf
 
+https://www.epiphan.com/userguides/LUMiO12x/Content/UserGuides/PTZ/3-operation/PELCODcommands.htm
+
 ## Use
 
 The Pelco-D protocol specifies commands formed as 7-byte "packets", each containing a synchronization byte, device address, 1 or 2 commands, 1 or 2 data instructions, and a checksum byte.  TPacket is an array of bytes, which is 7-bytes long to conform to this format.
