@@ -13,7 +13,9 @@ type TPelcoCommand = (
   cmdUp,          {Tilt Up}
   cmdDown,        {Tilt Down}
   cmdLeft,        {Pan Left}
-  cmdRight        {Pan Right}
+  cmdRight,       {Pan Right}
+  cmdAbsolutePan, {Pan to Absolute Position}
+  cmdAbsoluteTilt {Tilt to Absolute Position}
   );
 
 type TMovements = set of TPelcoCommand;
@@ -36,8 +38,10 @@ type
     const CMD_DOWN:         TPacket = ($FF,$00,$00,$10,$00,$00,$00);
     const CMD_LEFT:         TPacket = ($FF,$00,$00,$04,$00,$00,$00);
     const CMD_RIGHT:        TPacket = ($FF,$00,$00,$02,$00,$00,$00);
+    const CMD_ABS_PAN:      TPacket = ($FF,$00,$00,$4B,$00,$00,$00);
+    const CMD_ABS_TILT:     TPacket = ($FF,$00,$00,$4D,$00,$00,$00);
   public
-    const Movements: TMovements = [cmdUp,cmdDown,cmdLeft,cmdRight];
+    const Movements: TMovements = [cmdUp,cmdDown,cmdLeft,cmdRight,cmdAbsolutePan,cmdAbsoluteTilt];
     class function GetCommand(var packet: TPacket; command: TPelcoCommand; data1: Byte; data2: Byte; address: Byte): Boolean; static;
     class function GetCheckSum(packet: TPacket): byte; static;
 end;
@@ -50,11 +54,14 @@ var
 begin
   try
     case command of
-      cmdGetPanPos: packet := CMD_GET_PAN_POS;
-      cmdUp:        packet := CMD_UP;
-      cmdDown:      packet := CMD_DOWN;
-      cmdLeft:      packet := CMD_LEFT;
-      cmdRight:     packet := CMD_RIGHT;
+      cmdGetPanPos:    packet := CMD_GET_PAN_POS;
+      cmdGetTiltPos:   packet := CMD_GET_TILT_POS;
+      cmdUp:           packet := CMD_UP;
+      cmdDown:         packet := CMD_DOWN;
+      cmdLeft:         packet := CMD_LEFT;
+      cmdRight:        packet := CMD_RIGHT;
+      cmdAbsolutePan:  packet := CMD_ABS_PAN;
+      cmdAbsoluteTilt: packet := CMD_ABS_TILT;
     end;
 
     packet[1] := address;
