@@ -32,4 +32,4 @@ The TPelcoD class can be used to generate appropriately formed "packets" recogni
 
 **address** The address of the Pelco-D device (often set via dip-switch on the device).  Many devices can be "daisy-chained" together on the same wire, so addressing allows the application to specify which device on the chain to command.
 
- 
+Find more information about Clear Data Solutions, Inc. at: https://cleardata.it 

@@ -7,6 +7,8 @@ interface
 uses
   Classes, SysUtils;
 
+  { TPelcoCommand }
+
 type TPelcoCommand = (
   cmdGetPanPos,   {Get Pan Position}
   cmdGetTiltPos,  {Get Tilt Position}
@@ -18,12 +20,18 @@ type TPelcoCommand = (
   cmdAbsoluteTilt {Tilt to Absolute Position}
   );
 
+  { TMovements }
+
 type TMovements = set of TPelcoCommand;
+
+  {TPelcoResponse }
 
 type TPelcoResponse = (
   rspPanPos=$59,  {Pan Position Response}
   rspTiltPos=$5B  {Tilt Position Response}
 );
+
+  { TPacket }
 
 type
   TPacket = array [0..6] of Byte;
