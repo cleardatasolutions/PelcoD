@@ -40,6 +40,7 @@ type
 
   TPelcoD = class
   private
+    { Constants: Pelco Command Packets }
     const CMD_GET_PAN_POS:  TPacket = ($FF,$00,$00,$51,$00,$00,$00);
     const CMD_GET_TILT_POS: TPacket = ($FF,$00,$00,$53,$00,$00,$00);
     const CMD_UP:           TPacket = ($FF,$00,$00,$08,$00,$00,$00);
@@ -50,11 +51,15 @@ type
     const CMD_ABS_TILT:     TPacket = ($FF,$00,$00,$4D,$00,$00,$00);
   public
     const Movements: TMovements = [cmdUp,cmdDown,cmdLeft,cmdRight,cmdAbsolutePan,cmdAbsoluteTilt];
+
+    { Data Methods }
     class function GetCommand(var packet: TPacket; command: TPelcoCommand; data1: Byte; data2: Byte; address: Byte): Boolean; static;
     class function GetCheckSum(packet: TPacket): byte; static;
 end;
 
 implementation
+
+{ Public - Data Methods }
 
 class function TPelcoD.GetCommand(var packet: TPacket; command: TPelcoCommand; data1: Byte; data2: Byte; address: Byte): Boolean; static;
 var
@@ -76,7 +81,6 @@ begin
     packet[4] := data1;
     packet[5] := data2;
 
-    //checksum := (packet[1]+packet[2]+packet[3]+packet[4]+packet[5]) Mod $100;
     checksum := GetCheckSum(packet);
     packet[6] := checksum;
   except
